@@ -12,7 +12,8 @@ const API_URL = environment.apiUrl;
 
 @Component({
   selector: 'account-page',
-  templateUrl: './account.component.html'
+  templateUrl: './account.component.html',
+  styleUrls: ['./account.component.css'],
 })
 export class AccountComponent implements OnInit, OnDestroy {
 

@@ -1,0 +1,35 @@
+.parent-image{
+    width: 4rem;
+    height: 4rem;
+    background: #d1f2fd;
+    border-radius: 50%;
+}
+
+.image-text{
+    position: relative;
+    top: 1rem;
+    text-align: center;
+}
+
+.inputstyle{
+    width: inherit;
+    display:inline-block;
+    border:none;
+    border-bottom:1px solid #f2f3f8;
+    padding-left:1rem;
+}
+
+.acct-name-input{
+    background-color: #716aca;
+    color: white;
+    width: 13rem;
+    padding-left: 0rem;
+}
+
+.input-group{
+ padding-top: 1rem;
+}
+
+.icon-font{
+    font-size: 2rem;
+}

@@ -5,3 +5,36 @@
 .nav-link {
   cursor:pointer;
 }
+
+.form-group .m-form__group.row{
+  padding: 0px;
+}
+
+.m-form .m-form__group{
+  padding: 0px;
+  padding-top: .7rem;
+}
+
+.nomargin{
+  margin-bottom: 0rem ;
+}
+
+.form-group .m-form__group .row.show_btn_margin{
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+.btngroup{
+  padding-left: 1rem;
+  padding-bottom: 1rem;
+}
+
+
+.ngx-datatable.material 
+  .datatable-header 
+    .datatable-header-cell {
+      background-color: darkgray;
+      font-weight: bold;
+    }
+  
+

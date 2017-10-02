@@ -3,9 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { ArticleModule } from './article/article.module';
 import { AuthModule } from './auth/auth.module';
 import { AccountModule } from './account/account.module';
+import { EditorModule } from './editor/editor.module';
 import { HomeModule } from './home/home.module';
+import { ProfileModule } from './profile/profile.module';
+import { SettingsModule } from './settings/settings.module';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import {
   ApiService,
@@ -33,11 +37,15 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
   ],
   imports: [
     BrowserModule,
+    ArticleModule,
     AuthModule,
     AccountModule,
+    EditorModule,
     HomeModule,
+    ProfileModule,
     rootRouting,
     SharedModule,
+    SettingsModule,
     NgxDatatableModule,
   ],
   providers: [
