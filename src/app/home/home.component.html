@@ -1,0 +1,104 @@
+<div class="home-page">
+
+  <div class="banner" style="padding:0rem; margin-bottom:0rem;" *showAuthed="false">
+    <div class="container">
+      <h1 class="logo-font" style="font-size: 2rem;">View My Accounts</h1>
+    </div>
+  </div>
+
+  <div class="container page">
+    <div class="row">
+        <div class="col-md-12">
+
+				<ngx-datatable #table class='material' [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+        [rowHeight]="'auto'" [limit]="10" [rows]='rows' [scrollbarH]="true">
+          <ngx-datatable-column name="Account" prop="accountContactId.name" [width]="70"></ngx-datatable-column>			
+         <ngx-datatable-column name="type" prop="typeId.name" [width]="70"></ngx-datatable-column>
+         <ngx-datatable-column name="Status" prop="statusId.name" [width]="100"></ngx-datatable-column>					
+         <ngx-datatable-column name="Stage" prop="stageId.name" [width]="70"></ngx-datatable-column>
+         <ngx-datatable-column name="Contact" prop="primaryContactId.name"  [width]="70"></ngx-datatable-column>
+         <ngx-datatable-column name="Phone" prop="primaryContactId.phones"  [width]="120">
+           <template let-value="value" ngx-datatable-cell-template>
+             {{value[0].number}}
+           </template>
+         </ngx-datatable-column>
+         <ngx-datatable-column name="Email" prop="primaryContactId.email" [width]="140">
+           <template let-value="value" ngx-datatable-cell-template>
+             <span style="word-break: break-all;">{{value}}</span>
+           </template>
+         </ngx-datatable-column>
+         <ngx-datatable-column name="Notes" prop="notes"  [width]="190">
+           <template let-value="value" ngx-datatable-cell-template>
+             <span *ngIf="value.length">{{value[value.length - 1].content}}</span>
+             <span *ngIf="!value.length">------</span>
+           </template>
+         </ngx-datatable-column>
+         <ngx-datatable-column name="Action" prop="_id" [width]="30">
+           <ng-template let-value="value" ngx-datatable-cell-template>
+             <div>
+                <!-- (click)="redirectContact(value)" -->
+               <!-- [routerLink]="['/components/base/tables', value]" -->
+               <span class="m_quick_sidebar_toggle">
+                     <a [routerLink]="['/account', value]" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="View ">
+                         <i class="ion-edit"></i>
+                       </a>
+                 </span>
+             </div>
+           </ng-template>
+         </ngx-datatable-column>
+       </ngx-datatable>
+<div>
+      <!-- <div class="col-md-9">
+        <div class="feed-toggle">
+          <ul class="nav nav-pills outline-active">
+            <li class="nav-item">
+              <a class="nav-link"
+                 [ngClass]="{'active': listConfig.type === 'feed'}"
+                 (click)="setListTo('feed')">
+                 Your Feed
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"
+                 [ngClass]="{'active': listConfig.type === 'all' && !listConfig.filters.tag}"
+                 (click)="setListTo('all')">
+                 Global Feed
+              </a>
+            </li>
+            <li class="nav-item" [hidden]="!listConfig.filters.tag">
+              <a class="nav-link active">
+                <i class="ion-pound"></i> {{ listConfig.filters.tag }}
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <article-list [limit]="10" [config]="listConfig"></article-list>
+      </div>
+
+      <div class="col-md-3">
+        <div class="sidebar">
+          <p>Popular Tags</p>
+
+          <div class="tag-list">
+            <a href="#"
+               *ngFor="let tag of tags"
+               (click)="setListTo('all', {tag: tag})"
+               class="tag-default tag-pill">
+               {{ tag }}
+            </a>
+          </div>
+
+          <div [hidden]="tagsLoaded">
+            Loading tags...
+          </div>
+
+          <div [hidden]="!tagsLoaded || tags.length">
+            No tags are here... yet.
+          </div>
+        </div>
+      </div> -->
+
+    </div>
+  </div>
+</div>

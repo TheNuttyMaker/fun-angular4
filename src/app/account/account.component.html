@@ -1,0 +1,386 @@
+<div class="editor-page">
+  <div class="container page">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- BEGIN: Subheader -->
+<div >
+    <div class="m-subheader">
+      <div class="d-flex align-items-center">
+        <div class="mr-auto">
+          <h3 class="m-subheader__title m-subheader__title--separator">
+            Account Details
+          </h3>
+          <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+            <li class="m-nav__item m-nav__item--home">
+              <a href="#" class="m-nav__link m-nav__link--icon">
+                <i class="m-nav__link-icon la la-home"></i>
+              </a>
+            </li>
+            <li class="m-nav__separator">
+              -
+            </li>
+            <li class="m-nav__item">
+              <a href="" class="m-nav__link">
+                <span class="m-nav__link-text">
+                  CRM
+                </span>
+              </a>
+            </li>
+            <li class="m-nav__separator">
+              -
+            </li>
+            <li class="m-nav__item">
+              <a href="" class="m-nav__link">
+                <span class="m-nav__link-text">
+                  Accounts
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+            <div class="m-form__group m-form__group--inline">
+              <div class="m-form__control">
+                <label class="m-label m-label--single"> Status:
+                </label>
+                <!-- <select #statusF (change)="statusFunction(statusF.value)" style="color: #9699a2;     border-radius: 0.28em; padding: 0.45rem;	border-color: #f4f5f8;" >
+                    <option *ngFor="let status of statuses" [ngValue]="status._id">{{status.name}}</option>
+                </select>	 -->
+                <select  #statusF  [ngModel]="selectedStatusId" (change)="statusFunction(statusF.value, 0)" style="color: #9699a2;     border-radius: 0.28em; padding: 0.45rem;	border-color: #f4f5f8;" >
+                  <option *ngFor="let status of statuses" [ngValue]="status._id">{{status.name}}</option>
+                </select>
+                <!-- <select #statusF [(ngModel)]="statusObj" (change)="statusFunction(statusF.value)" style="color: #9699a2;  border-radius: 0.28em; padding: 0.45rem;	border-color: #f4f5f8;" >
+                  <option *ngFor="let status of statuses" [selected]="statusObj.name" [ngValue]="status._id">{{status.name}}</option>
+                </select> -->
+              </div>
+            </div>
+          <div class="d-md-none m--margin-bottom-10"></div>
+        </div>
+        <div class="col-md-4">
+          <div class="m-form__group m-form__group--inline">
+            <div>
+              <label> Stage: 
+              </label>
+              <!-- <select id="stage" #stageF (change)="stageFunction(stageF.value)" style="color: #9699a2;     border-radius: 0.28em; padding: 0.45rem;	border-color: #f4f5f8;" >
+                  <option *ngFor="let stage of stages" [ngValue]="stage._id">{{stage.name}}</option>
+              </select> -->
+              <select id="stage" [ngModel]="selectedStageId"  #stageF (change)="stageFunction(stageF.value, 0)"  style="color: #9699a2;     border-radius: 0.28em; padding: 0.45rem;	border-color: #f4f5f8;" >
+                  <option *ngFor="let stage of stages" [ngValue]="stage._id">{{stage.name}}</option>							
+              </select>
+            </div>
+          </div>
+          <div class="d-md-none m--margin-bottom-10"></div>
+        </div>
+        <div>
+    
+        </div>
+      </div>
+    </div>
+    <!-- END: Subheader -->
+    <div class="tab-content">
+      <div class="tab-pane active m-scrollable" id="m_quick_sidebar_tabs_messenger" role="tabpanel">
+        <div class="m-content">
+          <!--begin:: Widgets/Stats-->
+          <div class="m-portlet">
+            <div class="m-portlet__body  m-portlet__body--no-padding">
+              <div class="row m-row--no-padding m-row--col-separator-xl">
+                <div class="col-md-12 col-lg-6 col-xl-3">
+                  <!--begin::Total Profit-->
+                  <!--begin::Portlet-->
+                  <div class="m-portlet m-portlet--skin-dark m-portlet--bordered-semi m--bg-brand">
+                    <div class="m-portlet__head" style="height: 3.1rem">
+                      <div class="m-portlet__head-caption">
+                        <div class="m-portlet__head-title">
+                          <span class="m-portlet__head-icon">										
+                          </span>
+                          <h3 class="m-portlet__head-text">
+                          </h3>
+                        </div>
+                      </div>
+                      <div class="m-portlet__head-tools">
+                        <ul class="m-portlet__nav">
+                          <li class="m-portlet__nav-item">
+                            <a href="" (click)="updateContact(contact.accountContactId)" class="m-portlet__nav-link m-portlet__nav-link--icon">
+                              <i class="fa fa-save"></i>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="m-widget4" style="padding-left: 0.8rem;">
+                      <!--begin::Widget 14 Item-->
+                      <div class="m-widget4__item" style="padding-top: 0rem;">
+                        <div class="m-widget4__img m-widget4__img--pic">
+                          <div class="parent-image">
+                              <h4 class="image-text" >AN</h4>
+                          </div>
+                        </div>
+                        <div class="m-widget4__info">
+                          <span class="m-widget4__title" style="color:white; font-size:1.4rem">
+                              <input class="inputstyle acct-name-input"
+                              type="text" [value]="contact.accountContactId.name" (input)="contact.accountContactId.name = $event.target.value"/>																			
+                          </span>
+                          <br>											
+                        </div>
+                      </div>
+                      <!--end::Widget 14 Item-->
+                    </div>
+                    <div style="background-color:white; padding-left: 1rem;">
+                      <div class="input-group"> <span> Address</span></div>
+                      <div > <span> Line1</span> <input 
+                        [value]="contact.accountContactId.addresses[0].addressLine1" (input)="contact.accountContactId.addresses[0].addressLine1 = $event.target.value"
+                        class="inputstyle"
+                        type="text" placeholder="Address" /></div>
+                      <div > <span> City</span> <input 
+                        [value]="contact.accountContactId.addresses[0].city" (input)="contact.accountContactId.addresses[0].city = $event.target.value"
+                        class="inputstyle"
+                        type="text" placeholder="Address" /></div>
+                      <div > <span> State</span> <input 
+                        [value]="contact.accountContactId.addresses[0].state" (input)="contact.accountContactId.addresses[0].state = $event.target.value"
+                        class="inputstyle"
+                        type="text" placeholder="Address" /></div>
+                      <div > <span> Zip</span> <input 
+                        [value]="contact.accountContactId.addresses[0].zip" (input)="contact.accountContactId.addresses[0].zip = $event.target.value"
+                        class="inputstyle"
+                        type="text" placeholder="Address" /></div>
+                
+                        <!-- <div class="input-group"> <span> Phone Number</span></div>
+                      <div *ngFor="let phone of contact.accountContactId.phones"> 
+                        <span> {{phone.type}}</span> <input 
+                        [value]="phone.number" (input)="phone.number = $event.target.value"
+                        class="inputstyle"
+                        type="text" placeholder="PhoneNo" /></div> -->
+                    </div>
+    
+                     <!-- <div > <span> PhoneNo</span> <input [(ngModel)]="contact.accountContactId.phones[0].number" class="inputstyle"
+                      type="text" placeholder="PhoneNo" /></div>
+                     </div> -->
+                  </div>
+                  <!--end::Portlet-->
+                  <!--end::Total Profit-->
+    
+                  <!--begin::Widget 14-->
+                  <div class="m-widget4">
+                    <!--begin::Widget 14 Item-->
+                    <div style="padding-left: 1rem;">
+                      <span>Primary Contact</span>
+                      <a (click)="updateContact(contact.primaryContactId)"  style="float: right; padding-right: 2rem; cursor:pointer"><i class="fa fa-save"></i></a>
+                      <div class="m-widget4__item" style="border-bottom: none">
+                        <div class="parent-image">
+                          <h4 class="image-text" >CN</h4>
+                        </div>
+                        <div class="m-widget4__info">
+                          <span class="m-widget4__title">
+                            <input class="inputstyle"
+                            type="text" placeholder="Contact Name" [value]="contact.primaryContactId.name" (input)="contact.primaryContactId.name = $event.target.value"/>												
+                          </span>
+                          <br>
+                          <span class="m-widget4__sub">
+                            <input class="inputstyle"
+                            type="text" placeholder="Designation" [value]="contact.primaryContactId.title" (input)="contact.primaryContactId.title = $event.target.value"/>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="input-group"> <span>PhoneNo</span></div>
+                      <div *ngFor="let phone of contact.primaryContactId.phones"> 
+                        <span> {{phone.type}}</span> <input 
+                        [value]="phone.number" (input)="phone.number = $event.target.value"
+                         class="inputstyle"
+                        type="text" placeholder="PhoneNo" /></div>
+                     <!-- <div> <span> PhoneNo</span> <input 
+                    [value]="contact.primaryContactId.phones[0].number" (input)="contact.primaryContactId.phones[0].number = $event.target.value"
+                    class="inputstyle"
+                      type="text" placeholder="PhoneNo" /></div> -->
+    
+                      <div class="m--space-10"></div>
+                      <div> <span> Email</span> <input 
+                        [value]="contact.primaryContactId.email" (input)="contact.primaryContactId.email = $event.target.value"
+                        class="inputstyle"
+                         type="text" placeholder="Email" /></div>
+                         <div class="m--space-10"></div>
+                         <div>
+                          <div class="input-group"> <span> Address</span></div>
+                          <div > <span> Line1</span> <input 
+                            [value]="contact.primaryContactId.addresses[0].addressLine1" (input)="contact.primaryContactId.addresses[0].addressLine1 = $event.target.value"
+                            class="inputstyle"
+                            type="text" placeholder="Address" /></div>
+                          <div > <span> City</span> <input 
+                            [value]="contact.primaryContactId.addresses[0].city" (input)="contact.primaryContactId.addresses[0].city = $event.target.value"
+                            class="inputstyle"
+                            type="text" placeholder="Address" /></div>
+                          <div > <span> State</span> <input 
+                            [value]="contact.primaryContactId.addresses[0].state" (input)="contact.primaryContactId.addresses[0].state = $event.target.value"
+                            class="inputstyle"
+                            type="text" placeholder="Address" /></div>
+                          <div > <span> Zip</span> <input 
+                            [value]="contact.primaryContactId.addresses[0].zip" (input)="contact.primaryContactId.addresses[0].zip = $event.target.value"
+                            class="inputstyle"
+                            type="text" placeholder="Address" /></div>
+                        </div>
+                    </div>
+                    <!--end::Widget 14 Item-->
+                  </div>
+    
+    
+    
+                </div>
+    
+                <div class="col-xl-6">
+                  <!--begin:Notes-->
+                  <div class="m-widget24">
+                    <div class="m-widget24__item">
+                      <h4 class="m-widget24__title" style="margin-top	: 1.61rem;">
+                        Add Notes
+                      </h4>
+                      <br>
+                      <div class="m-messenger m-messenger--message-arrow m-messenger--skin-light" style="padding-left:1rem; padding-right:1rem">									
+                        <div class="m-messenger__form">
+                          <div class="m-messenger__form-controls">
+                            <input 
+                            [value]="content" (input)="content = $event.target.value"
+                            type="text" name="" placeholder="Type here..." class="m-messenger__form-input" (keyup.enter)="addNotes(content)">
+                          </div>
+                          <div class="m-messenger__form-tools">
+                            <a href="" (click)="addNotes(content)" class="m-messenger__form-attachment">
+                            <i class="m-menu__link-icon flaticon-add"></i>
+                          </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--end::Notes-->
+                  <div class="m--space-30"></div>
+                  <div class="m-portlet m-portlet">
+                    <div class="m-portlet__head">
+                      <div class="m-portlet__head-caption">
+                        <div class="m-portlet__head-title">
+                          <h3 class="m-portlet__head-text">
+                            Notes
+                          </h3>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="m-portlet__body">
+                      <div class="tab-content">
+                        <div class="tab-pane active" id="m_widget2_tab1_content">
+                          <div class="m-widget2">
+                            <div *ngFor="let note of notes ">
+                              <div attr.id="{{note._id}}" class="m-widget2__item ">
+                                <div class="m-widget2__desc">
+                                  <span class="m-widget2__text">
+                                    {{note.content}}
+                                  </span>
+                                  <br>
+                                  <span class="m-widget2__user-name">
+                                    <a href="#" class="m-widget2__link">
+                                      {{note.createdAt | date}}
+                                    </a>
+                                  </span>
+                                </div>
+                                <div class="m-widget2__actions">
+                                  <div class="">
+                                    <span class="">
+                                      <a  (click)="deleteNote(note)" class="m-messenger__form-attachment">
+                                          <i class="m-menu__link-icon flaticon-close"></i>
+                                      </a>
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="tab-pane" id="m_widget2_tab2_content"></div>
+                        <div class="tab-pane" id="m_widget2_tab3_content"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--end:: Widgets/Notes -->
+                </div>
+                <div class="col-md-12 col-lg-6 col-xl-3">
+                  <!--begin::New Users-->
+                  <div style="padding-left: 1rem; padding-top: 1rem;">
+                    <span> Other Contacts</span>
+                    <!-- <div>
+                      <br>
+                        <span> No other contacts are available</span>										
+                    </div> -->
+    
+                    <div *ngFor="let otherContact of otherContacts" class="m-widget4">
+                        <div class="m--space-20"></div>
+                      <div class="m-widget4__item" style="border-bottom: none">
+                        <div class="parent-image">
+                          <h4 class="image-text" >CN</h4>
+                        </div>
+                        <div class="m-widget4__info">
+                          <span><a (click)="updateContact(otherContact)"  style="margin-top:-2rem; float: right; padding-right: 2rem; cursor:pointer"><i class="fa fa-save"></i></a></span>
+                          <!-- <span class="m-widget4__title">
+                            {{otherContact.name}} 
+                          </span>
+                          <br>
+                          <span class="m-widget4__sub">
+                            {{otherContact.title}}
+                          </span> -->
+                          <span class="m-widget4__title">
+                              <input class="inputstyle"
+                              type="text" placeholder="Contact Name" [value]="otherContact.name" (input)="otherContact.name = $event.target.value"/>
+                            </span>
+                            <br>
+                            <span class="m-widget4__sub">
+                              <input class="inputstyle"
+                              type="text" placeholder="Contact Name" [value]="otherContact.title" (input)="otherContact.title = $event.target.value"/>
+                            </span>
+                        </div>
+                      </div>
+                      <div > <span> Email</span><input class="inputstyle"
+                        type="text" placeholder="email" [value]="otherContact.email" (input)="otherContact.email = $event.target.value"/></div>
+                
+                        <div class="input-group"> <span> Phone Number</span></div>
+                      <div *ngFor="let phone of otherContact.phones"> 
+                        <span> {{phone.type}}</span> <input [value]="phone.number" (input)="phone.number = $event.target.value" class="inputstyle"
+                        type="text" placeholder="PhoneNo" /></div>
+                      <div class="m--space-20"></div>
+                    </div>
+                    <!--end::Widget 14 Item-->
+    
+                    <!--end::New Users-->
+    
+    
+                    <!-- <div class="m-widget4">
+                      <div class="m-widget4__item" style="border-bottom: none">
+                        <div class="m-widget4__img m-widget4__img--pic">
+                          <img src="./assets/app/media/img/users/100_5.jpg" alt="">
+                        </div>
+                        <div class="m-widget4__info">
+                          <span class="m-widget4__title">
+                                  Nick Stone
+                          </span>
+                          <br>
+                          <span class="m-widget4__sub">
+                              Regional Manager, Dunder Milf
+                          </span>
+                        </div>
+                      </div>
+                      <div> <span> Address</span> <input class="inputstyle"
+                         type="text" placeholder="Address" /></div>
+                      <div> <span> Email</span> <input class="inputstyle"
+                         type="text" placeholder="Email" /></div>
+                      <div> <span> PhoneNo</span> <input class="inputstyle"
+                         type="text" placeholder="PhoneNo" /></div>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--end:: Widgets/Stats-->
+        </div>
+      </div>
+    </div>
+    </div>
+
+      </div>
+    </div>
+  </div>
+</div>
