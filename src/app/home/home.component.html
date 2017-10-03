@@ -8,7 +8,102 @@
 
   <div class="container page">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12" style="padding-bottom: 3rem;">
+
+            <div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30" style="margin-top: 0px !important;">
+                <div class="row">
+                    <div class="col-xl-8 order-2 order-xl-1">
+                      <div class="form-group m-form__group row align-items-center">
+                        <div class="col-md-8">
+                          <div class="btn-group m-btn-group btngroup"  role="group" aria-label="...">											
+                            <button *ngFor="let status of statuses" (click)="statusFunction(status.name)" type="button" class="btn btn-success">
+                              {{status.name}}
+                            </button>												
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="m--align-right">
+                                <button type="button" class="btn btn-accent m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill" data-toggle="modal" data-target="#m_modal_5">
+                                          <span>
+                                            <i class="flaticon-user-add"></i>
+                                            <span>
+                                              New Account
+                                            </span>
+                                          </span>
+                                </button>
+                              </div>
+                        </div>
+                      </div>
+
+
+                    </div>
+
+                  </div>
+              <div class="row align-items-center">
+                <div class="col-xl-8 order-2 order-xl-1">
+                  <div class="form-group m-form__group row align-items-center">
+                    <!-- <div class="col-md-3">
+                      <div class="m-form__group m-form__group--inline">
+                        <div class="m-form__label">
+                          <label class="m-label m-label--single">
+                            Status:
+                          </label>
+                        </div>
+                        <div class="m-form__control">
+                          <select #statusF (change)="statusFunction(statusF.value)" style="color: #9699a2;     border-radius: 0.28em; padding: 0.45rem;	border-color: #f4f5f8;" >
+                              <option *ngFor="let status of statuses" [ngValue]="status._id">{{status.name}}</option>
+                          </select>										
+                        </div>
+                      </div>
+                      <div class="d-md-none m--margin-bottom-10"></div>
+                    </div> -->
+                    <div class="col-md-4">
+                      <div class="m-form__group m-form__group--inline">
+                        <div class="m-form__label">
+                          <label >
+                            Stage:
+                          </label>
+                        </div>
+                        <div>
+                          <select id="stage" #stageF (change)="stageFunction(stageF.value)" style="color: #9699a2;     border-radius: 0.28em; padding: 0.45rem;	border-color: #f4f5f8;" >
+                              <option *ngFor="let stage of stages" [ngValue]="stage._id">{{stage.name}}</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="d-md-none m--margin-bottom-10"></div>
+                    </div>
+      
+                    <div class="col-md-4">
+                        <div class="m-form__group m-form__group--inline">
+                          <div class="m-form__label">
+                            <label >
+                              Type:
+                            </label>
+                          </div>
+                          <div>
+                            <select #typeF (change)="typeFunction(typeF.value)" style="color: #9699a2;     border-radius: 0.28em; padding: 0.45rem;	border-color: #f4f5f8;" >
+                                <option *ngFor="let type of types" [ngValue]="type._id">{{type.name}}</option>
+                            </select>											
+                          </div>
+                        </div>
+                        <div class="d-md-none m--margin-bottom-10"></div>
+                      </div>
+                    <div class="col-md-4">
+                      <div class="m-input-icon m-input-icon--left">
+                        <input type="text" class="form-control m-input m-input--solid" placeholder="Search Contacts..." id="m_form_search" (keyup)='updateFilter($event)'>
+                        <span class="m-input-icon__icon m-input-icon__icon--left">
+                                  <span>
+                                    <i class="la la-search"></i>
+                                  </span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
 
 				<ngx-datatable #table class='material' [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
         [rowHeight]="'auto'" [limit]="10" [rows]='rows' [scrollbarH]="true">
@@ -48,56 +143,82 @@
          </ngx-datatable-column>
        </ngx-datatable>
 <div>
-      <!-- <div class="col-md-9">
-        <div class="feed-toggle">
-          <ul class="nav nav-pills outline-active">
-            <li class="nav-item">
-              <a class="nav-link"
-                 [ngClass]="{'active': listConfig.type === 'feed'}"
-                 (click)="setListTo('feed')">
-                 Your Feed
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link"
-                 [ngClass]="{'active': listConfig.type === 'all' && !listConfig.filters.tag}"
-                 (click)="setListTo('all')">
-                 Global Feed
-              </a>
-            </li>
-            <li class="nav-item" [hidden]="!listConfig.filters.tag">
-              <a class="nav-link active">
-                <i class="ion-pound"></i> {{ listConfig.filters.tag }}
-              </a>
-            </li>
-          </ul>
-        </div>
 
-        <article-list [limit]="10" [config]="listConfig"></article-list>
-      </div>
 
-      <div class="col-md-3">
-        <div class="sidebar">
-          <p>Popular Tags</p>
-
-          <div class="tag-list">
-            <a href="#"
-               *ngFor="let tag of tags"
-               (click)="setListTo('all', {tag: tag})"
-               class="tag-default tag-pill">
-               {{ tag }}
-            </a>
-          </div>
-
-          <div [hidden]="tagsLoaded">
-            Loading tags...
-          </div>
-
-          <div [hidden]="!tagsLoaded || tags.length">
-            No tags are here... yet.
-          </div>
-        </div>
-      </div> -->
+    <div class="modal fade" id="m_modal_5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content" style="margin-top:8rem; width:40rem;">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">
+								Create New Account
+              </h5>
+							<button type="button" style="margin-right: -22rem;border: none;background-color: white;" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">
+                  <i class="ion-close"></i>
+							</span>
+						</button>
+						</div>
+						<div class="modal-body" style="padding: 0px;">
+							<form #f="ngForm" (ngSubmit)="onSubmit(f.form)" class="m-form m-form--fit m-form--label-align-right" id="m_form_1">
+								<div class="m-portlet__body">
+										<div class="form-group m-form__group row">
+												<label for="example-text-input" class="col-3 col-form-label">
+													Acct Name*
+												</label>
+												<div class="col-8">
+													<input type="text" class="form-control m-input" placeholder="Enter Name" [value]="account.mainAccount.name" (input)="account.mainAccount.name = $event.target.value">											
+												</div>
+											</div>
+											<div class="form-group m-form__group row">
+													<label for="example-text-input" class="col-3 col-form-label">
+														Type*
+													</label>
+													<div class="col-8">
+														<select id="typeId" #typeId (change)="updateTypeId(typeId.value)"   style="color: #9699a2;     border-radius: 0.28em; padding: 0.45rem;	border-color: #f4f5f8;" >															
+																<option *ngFor="let type of types" [ngValue]="type._id" >{{type.name}}</option>
+														</select>
+													</div>
+											</div>
+											<div class="form-group m-form__group row">
+													<label for="example-text-input" class="col-3 col-form-label">
+														City/State
+													</label>
+													<div class="col-5">
+														<input type="text" class="form-control m-input" placeholder="Enter City" [value]="account.primaryAccount.addresses[0].city" (input)="account.primaryAccount.addresses[0].city = $event.target.value">
+													</div>
+													<div class="col-4">	
+															<select (change)="account.primaryAccount.addresses[0].state = $event.target.value"  style="color: #9699a2;     border-radius: 0.28em; padding: 0.45rem;	border-color: #ebedf2;" >															
+																	<option *ngFor="let state of states" [ngValue]="state" >{{state}}</option>
+															</select>														
+													</div>
+											</div>
+											<div class="form-group m-form__group row">
+													<label for="example-text-input" class="col-3 col-form-label">
+														Phone
+													</label>
+													<div class="col-8">
+															<input type="text" class="form-control m-input" placeholder="Enter Phone" [value]="account.primaryAccount.phones[0].number" (input)="account.primaryAccount.phones[0].number = $event.target.value">
+													</div>
+											</div>
+											<div class="form-group m-form__group row">
+													<label for="example-text-input" class="col-3 col-form-label">
+														Email
+													</label>
+													<div class="col-8">
+															<input type="email" class="form-control m-input" placeholder="Enter Email" [value]="account.primaryAccount.email" (input)="account.primaryAccount.email = $event.target.value">
+													</div>
+											</div>
+								</div>
+								<div class="modal-footer">
+									<button type="submit" class="btn btn-primary">
+										Save Account
+									</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
 
     </div>
   </div>

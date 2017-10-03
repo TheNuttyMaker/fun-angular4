@@ -31,5 +31,14 @@
 }
 
 .icon-font{
-    font-size: 1rem;
+    font-size: 1.5rem;
+}
+
+.margin-botton-none{
+    margin-bottom:0rem
+}
+
+.border-style{
+    border: 1px solid #f2f3f8;
+    border-bottom: none;
 }

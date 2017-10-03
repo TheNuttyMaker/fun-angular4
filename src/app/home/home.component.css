@@ -38,3 +38,18 @@
     }
   
 
+
+.close-modal-btn{
+  margin-right: -22rem;
+  border: none;
+  background-color: white;
+}
+
+.modal .modal-content .modal-footer {
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+.modal .modal-content .modal-header {
+  padding: 1.5rem;
+}
