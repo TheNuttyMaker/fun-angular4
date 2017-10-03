@@ -3,10 +3,10 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import {Http, Response, Headers, RequestOptions} from '@angular/http';
 
-import { AccountDataService, ContactsDataService,ArticleListConfig} from '../shared';
+import { AccountDataService, ContactsDataService} from '../shared';
 import {Account, Stage, Status, Types, Notes} from '../shared/models';
 import { environment } from '../../environments/environment';
-import { Article } from '../shared';
+
 import * as _ from 'lodash';
 const API_URL = environment.apiUrl;
 
@@ -68,7 +68,6 @@ export class AccountComponent implements OnInit, OnDestroy {
   htmlToAddStages :string;
   htmlText: string;
 
-  article: Article = new Article();
   articleForm: FormGroup;
   tagField = new FormControl();
   errors: Object = {};

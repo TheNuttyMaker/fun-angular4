@@ -5,7 +5,6 @@
 
 export const environment = {
   production: false,
-  api_url: 'https://conduit.productionready.io/api',
   // URL of development API
   apiUrl: 'http://api.dieseldispatch.com/api',
   appUrl: 'http://localhost:4200/'
