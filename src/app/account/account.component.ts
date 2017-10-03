@@ -3,10 +3,10 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import {Http, Response, Headers, RequestOptions} from '@angular/http';
 
-import { AccountDataService, ContactsDataService,ArticleListConfig, TagsService, UserService } from '../shared';
+import { AccountDataService, ContactsDataService,ArticleListConfig} from '../shared';
 import {Account, Stage, Status, Types, Notes} from '../shared/models';
 import { environment } from '../../environments/environment';
-import { Article, ArticlesService } from '../shared';
+import { Article } from '../shared';
 import * as _ from 'lodash';
 const API_URL = environment.apiUrl;
 
@@ -77,7 +77,6 @@ export class AccountComponent implements OnInit, OnDestroy {
   constructor(
     private http : Http, 
     private contactsDataService : ContactsDataService,
-    private articlesService: ArticlesService,
     private route: ActivatedRoute,
     private router: Router,
     private fb: FormBuilder

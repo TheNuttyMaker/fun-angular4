@@ -2,19 +2,19 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { AccountComponent } from './account.component';
-import { EditableArticleResolver } from './account.service';
-import { AuthGuard, SharedModule } from '../shared';
+// import { EditableArticleResolver } from './account.service';
+import { SharedModule } from '../shared';
 
 const accountRouting: ModuleWithProviders = RouterModule.forChild([
   {
     path: 'account',
     component: AccountComponent,
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: 'account/:id',
     component: AccountComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     // resolve: {
     //   account: EditableArticleResolver
     // }

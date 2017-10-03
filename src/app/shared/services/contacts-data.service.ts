@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { environment } from '../../../environments/environment';
+import 'rxjs/add/operator/map'
 // import {AccountDataService } from '../../../../../../account-data.service';
 const API_URL = environment.apiUrl;
 
